@@ -35,6 +35,61 @@ function App() {
           </div>
         </div>
       </header>
+      {/* Main content area */}
+      <main className="p-10 sm:px-16 lg:px-44">
+        <div className="mx-auto max-w-3xl space-y-20">
+          {/* Content container */}
+          <header>
+            <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl">
+              Component name
+            </h1>
+            <p className="mt-2 text-lg text-gray-800">description</p>
+          </header>
+          <div className="md::space-y-16 space-y-10">
+            {/* Content Section */}
+            <div>
+              {/* Section heading */}
+              <h2 className="text-lg font-bold text-gray-800">
+                Section heading
+              </h2>
+              {/* Section description */}
+              <p className="mt-1 text-gray-600">description text</p>
+              {/* Section preview area */}
+              <div className="mt-3">
+                <div className="flex flex-col rounded-xl border p-6 shadow-sm">
+                  <div className="flex flex-wrap gap-2">
+                    {/* Prieviewd content i.e child components */}
+                    <div className="bg-blue-500/50 p-3">component 1</div>
+                    <div className="bg-blue-500/50 p-3">component 2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div>
+              {/* Section heading */}
+              <h2 className="text-lg font-bold text-gray-800">
+                Section heading
+              </h2>
+              {/* Section description */}
+              <p className="mt-1 text-gray-600">description text</p>
+              {/* Section preview area */}
+              <div className="mt-3">
+                <div className="flex flex-col rounded-xl border p-6 shadow-sm">
+                  <div className="flex flex-wrap gap-2">
+                    {/* Prieviewd content i.e child components */}
+                    <div className="bg-blue-500/50 p-3">component 1</div>
+                    <div className="bg-blue-500/50 p-3">component 2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </main>
     </div>
   );
 }
