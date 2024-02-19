@@ -2,7 +2,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+		<div className="relative min-h-screen bg-white">
       <header className="w-full sticky top-0 z-50 border-b bg-white">
         <div className="flex h-16 items-center px-10 sm:px-16 lg:px-44">
           <div className="mx-auto w-full max-w-3xl space-y-20">
