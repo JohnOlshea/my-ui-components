@@ -16,7 +16,7 @@ export const Input: React.FC<InputProps> = ({
 }) => {
 	// Base classes
 	const baseClasses: string =
-		"block w-full rounded-md border-gray-200 px-4 py-3 text-sm focus:border-emerald-500 focus:ring-emerald-500"
+		"block w-full rounded-md border-gray-200 px-4 py-3 text-sm focus:border-emerald-500 focus:ring-emerald-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400"
 
 	// Disabled classes
 	const disabledClasses: string =
@@ -32,7 +32,9 @@ export const Input: React.FC<InputProps> = ({
 	return (
 		<div className="max-w-sm space-y-3">
 			{label && (
-				<label className="mb-2 block text-sm font-medium">{label}</label>
+				<label className="mb-2 block text-sm font-medium dark:text-white">
+					{label}
+				</label>
 			)}
 			<input
 				className={mergedClasses}

@@ -11,7 +11,8 @@ export const CardContainer: React.FC<CardContainerProps> = ({
 	...props
 }) => {
 	// Base classes
-	const baseClasses: string = "rounded-xl border bg-white shadow-sm"
+	const baseClasses: string =
+		"rounded-xl border bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:shadow-zinc-700/[.7]"
 
 	// Merge the base classes with any additional classes while removing duplicates/conflicts
 	const mergedClasses = twMerge([baseClasses, className])
@@ -51,23 +52,31 @@ export const ContentCard = ({
 	return (
 		<CardContainer>
 			{header && (
-				<div className="rounded-t-xl border-b bg-gray-100 px-4 py-3 md:px-5 md:py-4">
-					<p className="mt-1 text-sm text-gray-500">{header}</p>
+				<div className="rounded-t-xl border-b bg-gray-100 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-800 md:px-5 md:py-4">
+					<p className="mt-1 text-sm text-gray-500 dark:text-zinc-500">
+						{header}
+					</p>
 				</div>
 			)}
 
 			<div className="flex flex-col p-4 md:p-5">
-				{title && <h3 className="text-lg font-bold text-gray-800">{title}</h3>}
+				{title && (
+					<h3 className="text-lg font-bold text-gray-800 dark:text-white">
+						{title}
+					</h3>
+				)}
 				{subtitle && (
-					<p className="mt-1 text-xs font-medium uppercase text-gray-500">
+					<p className="mt-1 text-xs font-medium uppercase text-gray-500 dark:text-zinc-500">
 						{subtitle}
 					</p>
 				)}
-				{plaintext && <p className="mt-2 text-gray-800">{plaintext}</p>}
+				{plaintext && (
+					<p className="mt-2 text-gray-800 dark:text-zinc-400">{plaintext}</p>
+				)}
 				{children}
 				{link && (
 					<a
-						className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-700"
+						className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-400"
 						href={link.url}
 					>
 						{link.text}
@@ -75,8 +84,10 @@ export const ContentCard = ({
 				)}
 			</div>
 			{footer && (
-				<div className="rounded-b-xl border-t bg-gray-100 px-4 py-3 md:px-5 md:py-4">
-					<p className="mt-1 text-sm text-gray-500">{footer}</p>
+				<div className="rounded-b-xl border-t bg-gray-100 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-800 md:px-5 md:py-4">
+					<p className="mt-1 text-sm text-gray-500 dark:text-zinc-500">
+						{footer}
+					</p>
 				</div>
 			)}
 		</CardContainer>
@@ -101,7 +112,7 @@ export const BlockLinkCard = ({
 		</>
 	)
 	return (
-		<CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50">
+		<CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50 dark:text-white dark:hover:bg-zinc-700/50">
 			<a className={linkClasses} href={url || "#"} target="_blank">
 				{linkContent}
 			</a>
