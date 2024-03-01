@@ -1,5 +1,8 @@
-//Define the type for the props
+// components/library/Card.tsx
 
+import { twMerge } from "tailwind-merge"
+
+// Define the type for the props the Card will accept
 type CardContainerProps = React.HTMLAttributes<HTMLDivElement>
 
 export const CardContainer: React.FC<CardContainerProps> = ({
@@ -7,18 +10,24 @@ export const CardContainer: React.FC<CardContainerProps> = ({
 	children,
 	...props
 }) => {
-	//Base classes
+	// Base classes
 	const baseClasses: string = "rounded-xl border bg-white shadow-sm"
 
-	// const mergedClasses=twMerge([baseClasses, className])
+	// Merge the base classes with any additional classes while removing duplicates/conflicts
+	const mergedClasses = twMerge([baseClasses, className])
+
+	// Return the Card with the base classes and any additional classes
 	return (
-		<div className="w-full max-w-xs" {...props}>
-			<div className={baseClasses}>{children}</div>
+		<div
+			className="w-full max-w-xs"
+			{...props} // Spread any additional props
+		>
+			<div className={mergedClasses}>{children}</div>
 		</div>
 	)
 }
 
-// This is for displaying content
+// This type of card is for displaying content, as well as an optional header and footer.
 export const ContentCard = ({
 	header,
 	footer,
@@ -54,19 +63,17 @@ export const ContentCard = ({
 						{subtitle}
 					</p>
 				)}
-				{plaintext && <p className="mt-2 text-gray-800">{title}</p>}
+				{plaintext && <p className="mt-2 text-gray-800">{plaintext}</p>}
 				{children}
-
 				{link && (
 					<a
-						className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-500"
+						className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-700"
 						href={link.url}
 					>
 						{link.text}
 					</a>
 				)}
 			</div>
-
 			{footer && (
 				<div className="rounded-b-xl border-t bg-gray-100 px-4 py-3 md:px-5 md:py-4">
 					<p className="mt-1 text-sm text-gray-500">{footer}</p>
@@ -76,28 +83,28 @@ export const ContentCard = ({
 	)
 }
 
+// This type of card is for providing block links.
 export const BlockLinkCard = ({
 	url,
 	text,
 	children,
 }: {
-	url?: string // URL for the link
-	text?: string // The text content
-	children: React.ReactNode // Children elements
+	url?: string // URL for the link. If not provided, defaults to "#".
+	text?: string // Text content to be displayed in the card.
+	children: React.ReactNode // Children elements to be rendered inside the card.
 }) => {
-    const linkClasses: string="flex flex-col items-center p-6 sm:p-10"
-
-    const linkContent = (
-        <>
-            {children}
-            {text && <p className="mt-2 font-medium">{text}</p>}
-        </>
-    )
+	const linkClasses: string = "flex flex-col items-center p-6 sm:p-10"
+	const linkContent = (
+		<>
+			{children}
+			{text && <p className="mt-2 font-medium">{text}</p>}
+		</>
+	)
 	return (
-        <CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50">
-            <a href={url || "#"} className={linkClasses} target="_blank">
-                {linkContent}
-            </a>
-        </CardContainer>
-    )
+		<CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50">
+			<a className={linkClasses} href={url || "#"} target="_blank">
+				{linkContent}
+			</a>
+		</CardContainer>
+	)
 }

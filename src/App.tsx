@@ -1,8 +1,9 @@
-import Button from "./components/library/Button"
-import { BlockLinkCard, ContentCard } from "./components/library/Card"
+import { SiVite, SiNextdotjs } from "react-icons/si"
 import { Input } from "./components/library/Input"
+import { BlockLinkCard, ContentCard } from "./components/library/Card"
+import { Button } from "./components/library/Button"
+import { Layout } from "./components/site/Layout"
 import { Container } from "./components/site/Container"
-import Layout from "./components/site/Layout"
 import { Section } from "./components/site/Section"
 
 export default function App() {
@@ -10,17 +11,17 @@ export default function App() {
 		<Layout>
 			<Container
 				title="Button"
-				description="A button - Lets the user trigger an action or event"
+				description="A button is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation."
 			>
 				<Section
 					title="Primary"
-					description="Primary actions - Solid and high contrast"
+					description="Primary actions should be obvious. Solid, high contrast background colors work great here."
 				>
 					{/* Primary button */}
-					<Button>Default Primary</Button>
+					<Button>Default</Button>
 					{/* Disabled primary button */}
-					<Button disabled>Disabled Primary</Button>
-					{/* Primary color overide buttons */}
+					<Button disabled>Disabled</Button>
+					{/* Primary color override buttons */}
 					<Button
 						colors={{
 							bg: "bg-amber-500",
@@ -28,7 +29,7 @@ export default function App() {
 							focusRing: "focus:ring-amber-500",
 						}}
 					>
-						Amber Primary
+						Amber
 					</Button>
 					<Button
 						colors={{
@@ -67,15 +68,17 @@ export default function App() {
 						Twitter Blue
 					</Button>
 				</Section>
-
 				<Section
 					title="Secondary"
-					description="Secondary actions - Clear not prominent"
+					description="Secondary actions should be clear but not prominent. Outline styles or lower contrast background colors are great options."
 				>
-					<Button variant="secondary">Default Secondary</Button>
+					{/* Secondary button */}
+					<Button variant="secondary">Default</Button>
+					{/* Disabled secondary button */}
 					<Button variant="secondary" disabled>
-						Disabled Secondary
+						Disabled
 					</Button>
+					{/* Secondary color override buttons */}
 					<Button
 						variant="secondary"
 						colors={{
@@ -85,7 +88,7 @@ export default function App() {
 							focusRing: "focus:ring-amber-500",
 						}}
 					>
-						Amber Secondary
+						Amber
 					</Button>
 					<Button
 						variant="secondary"
@@ -132,12 +135,17 @@ export default function App() {
 						Twitter Blue
 					</Button>
 				</Section>
-
-				<Section title="Tertiary" description="Tertiary actions - discoverable">
-					<Button variant="tertiary">Default Tertiary</Button>
+				<Section
+					title="Tertiary"
+					description="Tertiary actions should be discoverable but unobtrusive. Styling these actions like links is usually the best approach."
+				>
+					{/* Tertiary button */}
+					<Button variant="tertiary">Default</Button>
+					{/* Disabled tertiary button */}
 					<Button variant="tertiary" disabled>
-						Disabled Tertiary
+						Disabled
 					</Button>
+					{/* Tertiary color override buttons */}
 					<Button
 						variant="tertiary"
 						colors={{
@@ -146,7 +154,7 @@ export default function App() {
 							focusRing: "focus:ring-amber-500",
 						}}
 					>
-						Amber Tertiary
+						Amber
 					</Button>
 					<Button
 						variant="tertiary"
@@ -189,10 +197,9 @@ export default function App() {
 						Twitter Blue
 					</Button>
 				</Section>
-
 				<Section
 					title="Destructive"
-					description="Destructive actions - normally result in item removal"
+					description="Destructive actions typically result in the removal of an item, and may result in an undesirable consequence."
 				>
 					{/* Destructive primary button */}
 					<Button
@@ -202,7 +209,7 @@ export default function App() {
 							focusRing: "focus:ring-red-500",
 						}}
 					>
-						Yep, I want to delete this
+						Yes, I'm sure I want to delete this.
 					</Button>
 					{/* Destructive secondary button */}
 					<Button
@@ -220,96 +227,96 @@ export default function App() {
 					<Button
 						variant="tertiary"
 						colors={{
-							text: "text-indigo-500",
-							hoverText: "hover:text-indigo-700",
-							focusRing: "focus:ring-indigo-500",
+							text: "text-gray-500",
+							hoverText: "hover:text-gray-700",
+							focusRing: "focus:ring-gray-500",
 						}}
 					>
 						Cancel
 					</Button>
 				</Section>
 			</Container>
-
 			<Container
 				title="Card"
-				description="A card is a flexible content container"
+				description="A card is a flexible and extensible content container."
 			>
-				<Section title="Simple" description="Simple card">
+				<Section
+					title="Simple"
+					description="Simple cards display content and can provide a distinct link that can be selected."
+				>
 					{/* Simple card */}
 					<ContentCard
 						title="Card title"
 						subtitle="Card subtitle"
-						plaintext="Some quick example text to build on the card"
-						link={{
-							url: "#",
-							text: "Card link",
-						}}
+						plaintext="Some quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card link" }}
 					></ContentCard>
 				</Section>
 
 				<Section
 					title="Simple with a header and footer"
-					description="Add an optional header"
+					description="Add an optional header and/or footer within a card."
 				>
 					{/* Simple card with header */}
 					<ContentCard
 						header="Featured"
 						title="Card title"
 						subtitle="Card subtitle"
-						plaintext="Some quick example text to build on the card"
-						link={{
-							url: "#",
-							text: "Card link",
-						}}
+						plaintext="Some quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card link" }}
 					></ContentCard>
 					{/* Simple card with footer */}
 					<ContentCard
-						footer="Last updated 10 mins ago"
+						footer="Last updated 5 mins ago"
 						title="Card title"
 						subtitle="Card subtitle"
-						plaintext="Some quick example text to build on the card"
-						link={{
-							url: "#",
-							text: "Card link",
-						}}
+						plaintext="Some quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card link" }}
 					></ContentCard>
 				</Section>
-
-				<Section title="Block link" description="Simple card">
+				<Section
+					title="Block link"
+					description="A simple card enhanced into a selectable block link."
+				>
 					{/* Vite card */}
-					<BlockLinkCard url="https://vitejs.dev/" text="vite">
-						{/* <SiVite className="h-10 w-10" /> */}
-						<span>V</span>
+					<BlockLinkCard url="https://vitejs.dev/" text="Vite">
+						<SiVite className="h-10 w-10" />
 					</BlockLinkCard>
-
-					{/* Nextjs card */}
-					<BlockLinkCard url="https://vitejs.org/" text="Next.js">
-						{/* <SiVite className="h-10 w-10" /> */}
-						<span>N</span>
+					{/* NextJS card */}
+					<BlockLinkCard url="https://nextjs.org/" text="Next.js">
+						<SiNextdotjs className="h-10 w-10" />
 					</BlockLinkCard>
 				</Section>
 			</Container>
-
 			<Container
 				title="Inputs"
-				description="An input is a widget that allows users to provide data"
+				description="An input is a widget that allows users to provide data or specify
+		options, which can be submitted as part of a form or used to interact
+		with and manipulate content on a web page."
 			>
 				<Section title="Basic" description="Basic input with a placeholder.">
 					{/* Basic Input */}
-					<Input type="text" placeholder="Type things here" />
+					<Input type="text" placeholder="Type things here!" />
 
 					{/* Basic Disabled Input */}
-					<Input disabled type="text" placeholder="Disabled :(" />
+					<Input
+						type="text"
+						placeholder="Disabled 😔" //https://emojipedia.org/pensive-face
+						disabled
+					/>
 				</Section>
-
 				<Section title="Label" description="Input with a label.">
-					{/* Input with a label */}
+					{/* Input with label */}
 					<Input type="email" label="Email" placeholder="you@site.com" />
 				</Section>
-
-				<Section title="Description" description="Input with a description.">
-					{/* Input with a description */}
-					<Input type="password" label="Password" placeholder="secret!" description="Your secret is safe with us ;)"/>
+				<Section title="Description" description="Input with a description">
+					{/* Input with description */}
+					<Input
+						type="email"
+						label="Email"
+						description="We'll never share your details."
+						placeholder="you@site.com"
+					/>
 				</Section>
 			</Container>
 		</Layout>

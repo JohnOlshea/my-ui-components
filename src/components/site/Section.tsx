@@ -1,25 +1,25 @@
-export const Section = (
-    {
-        title,
-        description,
-        children
-    }:{
-        title: string
-        description: string
-        children: React.ReactNode
-    }
-) => {
+// components/site/Section.tsx
+// A section used to group the documentation components for a type/variant of a custom UI component
+export const Section = ({
+	title,
+	description,
+	children,
+}: {
+	title: string
+	description: string
+	children: React.ReactNode
+}) => {
 	return (
 		<div>
-			{/* Section heading */}
+			{/* Section heading  */}
 			<h2 className="text-lg font-bold text-gray-800">{title}</h2>
-			{/* Section description */}
+			{/* Section description  */}
 			<p className="mt-1 text-gray-600">{description}</p>
 			{/* Section preview area */}
 			<div className="mt-3">
 				<div className="flex flex-col rounded-xl border p-6 shadow-sm">
 					<div className="flex flex-wrap gap-2">
-						{/* Prieviewd content i.e child components */}
+						{/* The previewed stuff aka child components */}
 						{children}
 					</div>
 				</div>
